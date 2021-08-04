@@ -1,38 +1,320 @@
-.App {
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700,900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #343d4b;
+  color: #ffffff;
+}
+
+.heading {
+  padding: 2rem;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.light {
+  font-weight: 100;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Location and Date CSS */
+
+.location-and-date {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-and-date__location {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  /* margin-top: 10px; */
+  /* width: 50%; */
+  display: flex;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  /* font-size: 1.3rem; */
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  /* font-size: 1rem; */
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  /* font-weight: 700; */
+  border-width: 1px;
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  /* font-size: 1rem; */
+  /* font-weight: 700; */
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
+}
+
+.searchBtn {
+  margin-left: 20px;
+  border-radius: 30px;
+  border-color: #343d4b;
+  border-width: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Current Temperature CSS */
+
+.current-temperature {
+  display: flex;
+  margin-top: 0.25em;
+  width: 100%;
+}
+
+.current-temperature__icon-container {
+  flex-grow: 1.25;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.current-temperature__content-container {
+  flex-grow: 1;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.current-temperature__icon {
+  width: 10.5em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.current-temperature__value {
+  font-size: 5.25em;
+  font-weight: 300;
+}
+
+.current-temperature__summary {
+  margin-top: -0.5em;
+  margin-left: -0.6em;
+  font-size: 1.125em;
+}
+
+/* Current Status CSS */
+
+.current-stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  padding-bottom: 1em;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 700px) {
+  .current-stats {
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.current-stats__value {
+  margin-top: 1em;
+  font-size: 1.44em;
+}
+
+.current-stats__label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (min-width: 700px) {
+  .current-temperature,
+  .current-stats {
+    width: 50%;
+  }
+}
+
+/* Weather By Hours CSS */
+
+.weather-by-hour {
+  display: none;
+  width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .weather-by-hour {
+    display: block;
+  }
+}
+
+.weather-by-hour__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-by-hour__heading,
+.next-5-days__heading {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1em;
+  font-weight: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .weather-by-hour__heading,
+  .next-5-days__heading {
+    font-size: 1.125em;
+  }
+}
+
+.weather-by-hour__item {
+  padding: 0.8em 0;
+  width: 13%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+  font-size: 1.125em;
+  text-align: center;
+}
+
+@media screen and (min-width: 880px) {
+  .weather-by-hour__item {
+    width: 6.05em;
+  }
+}
+
+.weather-by-hour__hour {
+  margin-bottom: 0.5em;
+}
+
+/* Next 7 Days CSS */
+
+.next-5-days {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.next-5-days__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.next-5-days__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 0.3em;
+  padding: 0.8em 0;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 1.19em;
+  text-align: center;
+}
+
+.next-5-days__label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.83em;
+}
+
+.next-5-days__date,
+.next-5-days__high,
+.next-5-days__low,
+.next-5-days__icon,
+.next-5-days__rain,
+.next-5-days__wind {
+  width: 33.33333%;
+  font-size: 0.95em;
+}
+
+.next-5-days__date,
+.next-5-days__high,
+.next-5-days__low {
+  margin-bottom: 0.6em;
+}
+
+@media screen and (min-width: 450px) {
+  .next-5-days__date,
+  .next-5-days__high,
+  .next-5-days__low,
+  .next-5-days__icon,
+  .next-5-days__rain,
+  .next-5-days__wind {
+    width: 16.666666%;
+    margin-bottom: initial;
+  }
+
+  .next-5-days__date {
+    order: -2;
+  }
+
+  .next-5-days__icon {
+    order: -1;
+  }
+}
+
+/* ---------- Responsive CSS ---------- */
+
+@media screen and (min-width: 1140px) {
+  .main-container {
+    width: 1120px;
+    margin: 16px auto;
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .weather-by-hour {
+    display: block;
+  }
+
+  .current-temperature,
+  .current-stats {
+    width: 50%;
   }
 }
