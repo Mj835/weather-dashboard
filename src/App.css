@@ -6,6 +6,17 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  /* background-color: #343d4b;
+  color: #ffffff; */
+}
+
+body.light-mode {
+  background-color: #ecf0f1;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
   background-color: #343d4b;
   color: #ffffff;
 }
@@ -23,8 +34,14 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
+.toggle-button {
+  margin: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .heading {
-  padding: 2rem;
+  padding-bottom: 2rem;
   text-align: center;
   font-weight: 900;
   font-size: 2rem;
@@ -37,6 +54,7 @@ body::-webkit-scrollbar-thumb {
 .main-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 /* Location and Date CSS */
@@ -70,7 +88,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 1px solid #9b9b9b;
   outline: 0;
   font-size: 1.3rem;
-  color: #fff;
+  /* color: #fff; */
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -169,30 +187,13 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-@media screen and (min-width: 700px) {
-  .current-stats {
-    margin-bottom: 1em;
-    padding-bottom: 0;
-    border-top: none;
-    border-bottom: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-  }
-}
-
 .current-stats__value {
   margin-top: 1em;
   font-size: 1.44em;
 }
 
 .current-stats__label {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-@media screen and (min-width: 700px) {
-  .current-temperature,
-  .current-stats {
-    width: 50%;
-  }
+  /* color: rgba(255, 255, 255, 0.6); */
 }
 
 /* Weather By Hours CSS */
@@ -200,12 +201,6 @@ body::-webkit-scrollbar-thumb {
 .weather-by-hour {
   display: none;
   width: 100%;
-}
-
-@media screen and (min-width: 700px) {
-  .weather-by-hour {
-    display: block;
-  }
 }
 
 .weather-by-hour__container {
@@ -228,17 +223,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .weather-by-hour__heading,
-.next-5-days__heading {
+.next-7-days__heading {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1em;
   font-weight: normal;
-}
-
-@media screen and (min-width: 768px) {
-  .weather-by-hour__heading,
-  .next-5-days__heading {
-    font-size: 1.125em;
-  }
 }
 
 .weather-by-hour__item {
@@ -251,29 +239,23 @@ body::-webkit-scrollbar-thumb {
   margin: 5px;
 }
 
-@media screen and (min-width: 880px) {
-  .weather-by-hour__item {
-    width: 6.05em;
-  }
-}
-
 .weather-by-hour__hour {
   margin-bottom: 0.5em;
 }
 
 /* Next 7 Days CSS */
 
-.next-5-days {
+.next-7-days {
   width: 100%;
   margin-top: 1em;
 }
 
-.next-5-days__container {
+.next-7-days__container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.next-5-days__row {
+.next-7-days__row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -287,45 +269,25 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
 }
 
-.next-5-days__label {
+.next-7-days__label {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.83em;
 }
 
-.next-5-days__date,
-.next-5-days__high,
-.next-5-days__low,
-.next-5-days__icon,
-.next-5-days__rain,
-.next-5-days__wind {
+.next-7-days__date,
+.next-7-days__high,
+.next-7-days__low,
+.next-7-days__icon,
+.next-7-days__rain,
+.next-7-days__wind {
   width: 33.33333%;
   font-size: 0.95em;
 }
 
-.next-5-days__date,
-.next-5-days__high,
-.next-5-days__low {
+.next-7-days__date,
+.next-7-days__high,
+.next-7-days__low {
   margin-bottom: 0.6em;
-}
-
-@media screen and (min-width: 450px) {
-  .next-5-days__date,
-  .next-5-days__high,
-  .next-5-days__low,
-  .next-5-days__icon,
-  .next-5-days__rain,
-  .next-5-days__wind {
-    width: 16.666666%;
-    margin-bottom: initial;
-  }
-
-  .next-5-days__date {
-    order: -2;
-  }
-
-  .next-5-days__icon {
-    order: -1;
-  }
 }
 
 /* ---------- Responsive CSS ---------- */
@@ -338,7 +300,22 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+@media screen and (min-width: 880px) {
+  .weather-by-hour__item {
+    width: 6.05em;
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .current-stats {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
   .weather-by-hour {
     display: block;
   }
@@ -346,5 +323,40 @@ body::-webkit-scrollbar-thumb {
   .current-temperature,
   .current-stats {
     width: 50%;
+  }
+
+  .weather-by-hour__heading,
+  .next-7-days__heading {
+    font-size: 1.125em;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .next-7-days__date,
+  .next-7-days__high,
+  .next-7-days__low,
+  .next-7-days__icon,
+  .next-7-days__rain,
+  .next-7-days__wind {
+    width: 16.666666%;
+    margin-bottom: initial;
+  }
+
+  .next-7-days__date {
+    order: -2;
+  }
+
+  .next-7-days__icon {
+    order: -1;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .location-and-date {
+    display: block;
+  }
+
+  .form__group {
+    margin-top: 25px;
   }
 }

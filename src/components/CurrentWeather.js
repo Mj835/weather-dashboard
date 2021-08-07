@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 export class CurrentWeather extends Component {
   render() {
@@ -14,12 +15,8 @@ export class CurrentWeather extends Component {
     const pressure = this.props.current.pressure;
     const wind = Math.floor(this.props.current.wind_speed);
     const humidity = Math.floor(this.props.current.humidity);
-    const sunrise = new Date(
-      this.props.current.sunrise * 1000
-    ).toLocaleTimeString();
-    const sunset = new Date(
-      this.props.current.sunset * 1000
-    ).toLocaleTimeString();
+    const sunrise = moment.unix(this.props.current.sunrise).format("HH:MM");
+    const sunset = moment.unix(this.props.current.sunset).format("HH:MM");
 
     return (
       <>

@@ -14,44 +14,44 @@ export class DayForecast extends Component {
       };
 
       return (
-        <div class="next-5-days__row">
-          <div class="next-5-days__date">
+        <div class="next-7-days__row">
+          <div class="next-7-days__date">
             {/* {days[d.getDay()]} {new Date(f.dt) + ""} */}
             {moment.unix(f.dt).format("dddd").slice(0, 3)}
-            <div class="next-5-days__label"></div>
+            <div class="next-7-days__label"></div>
           </div>
 
-          <div class="next-5-days__low">
+          <div class="next-7-days__low">
             {Math.floor(((f.temp.min - 32) * 5) / 9)}&deg;
-            <div class="next-5-days__label">Low</div>
+            <div class="next-7-days__label">Low</div>
           </div>
 
-          <div class="next-5-days__high">
+          <div class="next-7-days__high">
             {Math.floor(((f.temp.max - 32) * 5) / 9)}&deg;
-            <div class="next-5-days__label">High</div>
+            <div class="next-7-days__label">High</div>
           </div>
 
-          <div class="next-5-days__icon">
+          <div class="next-7-days__icon">
             <img src={image.url} alt={image.alt} />
           </div>
 
-          <div class="next-5-days__rain">
-            {f.rain} %<div class="next-5-days__label">Rain</div>
+          <div class="next-7-days__rain">
+            {f.rain} %<div class="next-7-days__label">Rain</div>
           </div>
 
-          <div class="next-5-days__wind">
+          <div class="next-7-days__wind">
             {Math.floor(f.wind_speed)} Km/hr
-            <div class="next-5-days__label">Wind</div>
+            <div class="next-7-days__label">Wind</div>
           </div>
         </div>
       );
     });
 
     return (
-      <div class="next-5-days">
-        <h2 class="next-5-days__heading">Next 7 days</h2>
+      <div class="next-7-days">
+        <h2 class="next-7-days__heading">Next 7 days</h2>
 
-        <div class="next-5-days__container">{items}</div>
+        <div class="next-7-days__container">{items}</div>
       </div>
     );
   }
