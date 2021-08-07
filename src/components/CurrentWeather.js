@@ -42,7 +42,7 @@ export class CurrentWeather extends Component {
           <div>
             <div class="current-stats__value">{feelsLike} &deg;</div>
             <div class="current-stats__label">Feels Like</div>
-            <div class="current-stats__value">{pressure} mb</div>
+            <div class="current-stats__value">{pressure} hPa</div>
             <div class="current-stats__label">Pressure</div>
           </div>
           <div>

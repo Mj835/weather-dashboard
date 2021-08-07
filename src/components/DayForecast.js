@@ -1,29 +1,24 @@
 import React, { Component } from "react";
+import moment from "moment";
 
 export class DayForecast extends Component {
   render() {
     const items = this.props.forecast.map((f, i) => {
+      if (i === 0) {
+        return null;
+      }
+
       const image = {
         url: `http://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`,
         alt: `Image of  ${f.weather[0].description}`,
       };
 
-      const d = new Date();
-      const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
-
       return (
         <div class="next-5-days__row">
           <div class="next-5-days__date">
-            {days[d.getDay()]}
-            <div class="next-5-days__label">{new Date(f.dt) + ""}</div>
+            {/* {days[d.getDay()]} {new Date(f.dt) + ""} */}
+            {moment.unix(f.dt).format("dddd").slice(0, 3)}
+            <div class="next-5-days__label"></div>
           </div>
 
           <div class="next-5-days__low">
