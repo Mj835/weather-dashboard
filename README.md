@@ -8,6 +8,11 @@ In the project directory, you can run:
 
 ### `yarn install && yarn start`
 
+If you are opening project for the first time.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `yarn start`
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
