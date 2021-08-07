@@ -21,6 +21,14 @@ body.dark-mode {
   color: #ffffff;
 }
 
+body.dark-mode .current-stats__label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark-mode .form__field {
+  color: #ffffff;
+}
+
 body::-webkit-scrollbar {
   width: 5px;
 }
